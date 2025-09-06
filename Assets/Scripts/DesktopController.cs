@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DesktopController : MonoBehaviour
 {
+    [SerializeField] float difficultySpeed = 2f;
     [SerializeField] float moveSpeed = 10f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,9 +14,13 @@ public class DesktopController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MovePlayer();        
+    }
+    void MovePlayer()
+    {
         float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         float yValue = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
-        float zValue = 1f * Time.deltaTime * moveSpeed;
+        float zValue = difficultySpeed * Time.deltaTime * moveSpeed;
         transform.Translate(xValue, yValue, zValue);
     }
 }
