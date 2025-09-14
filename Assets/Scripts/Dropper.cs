@@ -4,15 +4,15 @@ using UnityEngine;
 public class Dropper : MonoBehaviour
 {
     [SerializeField] float waitTime = 3f;
-    Rigidbody rigidbody;
+    Rigidbody rigidBody;
     MeshRenderer meshRenderer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
 
-        rigidbody.useGravity = false;
+        rigidBody.useGravity = false;
         meshRenderer.enabled = false;
     }
 
@@ -22,7 +22,7 @@ public class Dropper : MonoBehaviour
         if (Time.time > waitTime)
         {
             meshRenderer.enabled = true;
-            rigidbody.useGravity = true;
+            rigidBody.useGravity = true;
         }
     }
 }
